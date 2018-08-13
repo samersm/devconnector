@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-// const users = require('./routes/api/users');
-// const profile = require('./routes/api/profile');
-// const posts = require('./routes/api/posts');
+const users = require('./routes/api/users');
+const profile = require('./routes/api/profile');
+const posts = require('./routes/api/posts');
 
 const app = express();
 
@@ -13,15 +13,15 @@ const db = require('./config/keys').mongoURI;
 // Connect to MongoDB
 mongoose
   .connect(db)
-  .then(() => console.log('MongoDB Connected'))
+  .then(() => console.log('I wish to paint a picture.' + '\n' + 'Of a cold, dark, and very gentle place.'))
   .catch(err => console.log(err));
 
-// app.get('/', (req, res) => res.send('Hello World'));
+app.get('/', (req, res) => res.send('Hello World'));
 
 // Use Routes
-// app.use('/api/users', users);
-// app.use('/api/profile', profile);
-// app.use('/api/posts', posts);
+app.use('/api/users', users);
+app.use('/api/profile', profile);
+app.use('/api/posts', posts);
 
 const port = process.env.PORT || 5000;
 
